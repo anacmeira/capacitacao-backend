@@ -3,6 +3,7 @@ import { CreatUserController } from "./controllers/user/CreatUserController";
 import { AuthUserController } from "./controllers/user/AuthUserController";
 import { isAutheticated } from "./middlewares/isAuthenticated";
 import { DetailUserController } from "./controllers/user/DetailController";
+import { RemoveUserController } from "./controllers/user/RemoveUserController";
 
 const router = Router();
 router.get("/test",(request: Request, response: Response) => {
@@ -13,5 +14,6 @@ router.get("/test",(request: Request, response: Response) => {
 router.post('/user', new CreatUserController().handle);
 router.post('/session', new AuthUserController().handle);
 router.get('/me', isAutheticated, new DetailUserController().handle)
+router.delete('/user/remove', new RemoveUserController().handle);
 
 export { router };
