@@ -5,6 +5,7 @@ import { isAutheticated } from "./middlewares/isAuthenticated";
 import { DetailUserController } from "./controllers/user/DetailController";
 import { RemoveUserController } from "./controllers/user/RemoveUserController";
 import { CreatCategoryController } from "./controllers/category/CreatCategoryController";
+import { EditCategoryController } from "./controllers/category/EditCategoryController";
 
 const router = Router();
 router.get("/test",(request: Request, response: Response) => {
@@ -19,5 +20,6 @@ router.delete('/user/remove', new RemoveUserController().handle);
 
 //Rotas de Categoria:
 router.post("/category", isAutheticated, new CreatCategoryController().handle);
+router.put("/category/edit", isAutheticated, new EditCategoryController().handle)
 
 export { router };
