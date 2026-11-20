@@ -1,4 +1,6 @@
 import { Router, Request, Response } from "express";
+import multer from "multer";
+import uploadConfig from "../src/config/multer"
 import { CreatUserController } from "./controllers/user/CreatUserController";
 import { AuthUserController } from "./controllers/user/AuthUserController";
 import { isAutheticated } from "./middlewares/isAuthenticated";
@@ -13,6 +15,8 @@ const router = Router();
 router.get("/test",(request: Request, response: Response) => {
     return response.json({ok: true});
 });
+
+const upload = multer(uploadConfig.upload("./tmp"));
 
 // Rotas de Usuário:
 router.post('/user', new CreatUserController().handle);
