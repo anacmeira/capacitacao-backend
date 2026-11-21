@@ -11,6 +11,7 @@ import { EditCategoryController } from "./controllers/category/EditCategoryContr
 import { ListCategoryController } from "./controllers/category/ListCategoryController";
 import { RemoveCategoryController } from "./controllers/category/RemoveCategoryController";
 import { CreatProductController } from "./controllers/product/CreatProductController";
+import { EditProductController } from "./controllers/product/EditProductController";
 
 const router = Router();
 router.get("/test",(request: Request, response: Response) => {
@@ -32,5 +33,6 @@ router.get("/category/all", isAutheticated, new ListCategoryController().handle)
 router.delete("/category/remove", isAutheticated, new RemoveCategoryController().handle);
 
 //Rotas de Produto:
-router.post("/product", isAutheticated as any, upload.single("file") as any, new CreatProductController().handle as any)
+router.post("/product", isAutheticated as any, upload.single("file") as any, new CreatProductController().handle as any);
+router.put("/product/edit", isAutheticated as any, upload.single("file") as any, new EditProductController().handle as any)
 export { router };
