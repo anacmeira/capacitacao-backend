@@ -17,6 +17,8 @@ import { ListProductController } from "./controllers/product/ListProductControll
 import { RemoveProductController } from "./controllers/product/RemoveProductController";
 import { CreateSupplierController } from "./controllers/supplier/CreatSupplierController";
 import { ListSuppliersController } from "./controllers/supplier/ListSuppliersController";
+import { EditSupplierController } from "./controllers/supplier/EditSupplierController";
+
 
 const router = Router();
 router.get("/test",(request: Request, response: Response) => {
@@ -47,5 +49,6 @@ router.delete("/product/delete", isAutheticated, new RemoveProductController().h
 //Rotas de Fornecedor:
 router.post("/supplier", isAutheticated, new CreateSupplierController().handle);
 router.get("/suppliers", isAutheticated, new ListSuppliersController().handle);
+router.put("/supplier/edit", isAutheticated, new EditSupplierController().handle);
 
 export { router };
