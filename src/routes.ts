@@ -14,6 +14,7 @@ import { CreatProductController } from "./controllers/product/CreatProductContro
 import { EditProductController } from "./controllers/product/EditProductController";
 import { ListProductByCategoryController } from "./controllers/product/ListProductByCategoryController";
 import { ListProductController } from "./controllers/product/ListProductController";
+import { RemoveProductController } from "./controllers/product/RemoveProductController";
 
 const router = Router();
 router.get("/test",(request: Request, response: Response) => {
@@ -39,4 +40,5 @@ router.post("/product", isAutheticated as any, upload.single("file") as any, new
 router.put("/product/edit", isAutheticated as any, upload.single("file") as any, new EditProductController().handle as any)
 router.get("/product", isAutheticated, new ListProductByCategoryController().handle);
 router.get("/products", isAutheticated, new ListProductController().handle);
+router.delete("/product/delete", isAutheticated, new RemoveProductController().handle);
 export { router };
