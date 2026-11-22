@@ -18,6 +18,8 @@ import { RemoveProductController } from "./controllers/product/RemoveProductCont
 import { CreateSupplierController } from "./controllers/supplier/CreatSupplierController";
 import { ListSuppliersController } from "./controllers/supplier/ListSuppliersController";
 import { EditSupplierController } from "./controllers/supplier/EditSupplierController";
+import { RemoveSupplierController } from "./controllers/supplier/RemoveSupplierController";
+
 
 
 const router = Router();
@@ -50,5 +52,6 @@ router.delete("/product/delete", isAutheticated, new RemoveProductController().h
 router.post("/supplier", isAutheticated, new CreateSupplierController().handle);
 router.get("/suppliers", isAutheticated, new ListSuppliersController().handle);
 router.put("/supplier/edit", isAutheticated, new EditSupplierController().handle);
+router.delete("/supplier/delete", isAutheticated, new RemoveSupplierController().handle);
 
 export { router };
