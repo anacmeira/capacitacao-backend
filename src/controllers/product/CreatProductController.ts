@@ -3,7 +3,7 @@ import { CreatProductService } from "../../services/product/CreatProductService"
 
 class CreatProductController {
   async handle(request: Request, response: Response) {
-    const { name, price, description, category_id, amount, supplier_id } = request.body;
+    const { name, price, description, category_id, amount, supplier_id, supplierId } = request.body;
     const user_id = request.user_id;
 
     const creatProductService = new CreatProductService();
@@ -19,7 +19,7 @@ class CreatProductController {
         banner,
         category_id,
         amount,
-        supplier_id,
+        supplier_id: supplierId || supplier_id,
         user_id,
       });
 
